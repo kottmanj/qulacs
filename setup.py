@@ -56,14 +56,14 @@ class CMakeBuild(build_ext):
                 raise RuntimeError("gcc/g++ must be installed to build the following extensions: " +
                                ", ".join(e.name for e in self.extensions))
             if(gcc_version > LooseVersion('9.0.0')):
-                cmake_args += ['-DCMAKE_C_COMPILER=gcc']
+                cmake_args += ['-DCMAKE_C_COMPILER=gcc-7']
             elif(gcc_version >= LooseVersion('8.0.0')):
                 cmake_args += ['-DCMAKE_C_COMPILER=gcc-8']
             else:
                 cmake_args += ['-DCMAKE_C_COMPILER=gcc-7']
 
             if(gxx_version > LooseVersion('9.0.0')):
-                cmake_args += ['-DCMAKE_CXX_COMPILER=g++']
+                cmake_args += ['-DCMAKE_CXX_COMPILER=g++-7']
             elif(gxx_version >= LooseVersion('8.0.0')):
                 cmake_args += ['-DCMAKE_CXX_COMPILER=g++-8']
             else:
